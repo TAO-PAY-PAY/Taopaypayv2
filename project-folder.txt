@@ -1,0 +1,93 @@
+project-folder/
+│
+├── public/
+│   └── index.html
+├── uploads/
+├── server.js
+└── package.json
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFORMES</title>
+    <style>
+        body {
+            background-color: #FFC0CB; /* Fondo rosa */
+            color: #800080; /* Texto morado */
+        }
+        h1, h2, p, a {
+            color: #800080; /* Asegura que todos estos elementos tengan el texto morado */
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Contratacion</h1> 
+        <p>Esta es la de contratacion. <a href="taopaypay3.html">Volver a taopaypay3</a></p>
+        <p>Puedes descargar el documento Word desde el siguiente enlace: <a href="SOLICITUD DE EMPLEO.docx" download>Descargar documento</a></p>
+        
+        <!-- Formulario para cargar y enviar el documento -->
+        <h2>Enviar documento completado</h2>
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data" onsubmit="return showConfirmationMessage()">
+            <label for="file">Selecciona el documento:</label>
+            <input type="file" id="file" name="file" accept=".doc, .docx" required>
+            <br><br>
+            <button type="submit">Enviar</button>
+        </form>
+        
+        <p id="confirmationMessage" style="display:none; color:green;">¡Listo! Tu documento ha sido cargado, te llamaremos pronto.</p>
+    </center>
+
+    <script>
+        function showConfirmationMessage() {
+            document.getElementById('confirmationMessage').style.display = 'block';
+            return true;
+        }
+    </script>
+</body>
+</html>
+
+const express = require('express');
+const multer = require('multer');
+const nodemailer = require('nodemailer');
+const path = require('path');
+
+const app = express();
+const upload = multer({ dest: 'uploads/' });
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.post('/upload', upload.single('file'), (req, res) => {
+    const file = req.file;
+
+    // Configuración de Nodemailer
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'tu-email@gmail.com', // tu email
+            pass: 'tu-contraseña' // tu contraseña
+        }
+    });
+
+    let mailOptions = {
+        from: 'tu-email@gmail.com',
+        to: 'antoniomartinezbarrera07@gmail.com',
+        subject: 'Documento recibido',
+        text: `El documento ${file.originalname} ha sido cargado correctamente.`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Correo enviado: ' + info.response);
+    });
+
+    res.send('<p>¡Listo! Tu documento ha sido cargado, te llamaremos pronto.</p>');
+});
+
+app.listen(3000, () => {
+    console.log('Servidor iniciado en http://localhost:3000');
+});

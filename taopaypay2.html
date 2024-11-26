@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAO-PAY-PAY - Descripción del Software</title>
+    <link rel="stylesheet" href="css/styles.css">
+<style>
+        body {
+           background-color: #FFCCFF;
+            color: #800080;
+        }
+        h1, h2, p, a {
+            color: #800080; /* Asegura que todos estos elementos tengan el texto morado */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+    <center><img src="logo.jpg" height="150"
+    Alt="logo"
+    Class="center img">
+        </div>
+        <h1>TAO-PAY-PAY</h1>
+        <div class="description">
+            <h2>DESCRIPCIÓN DEL SOFTWARE</h2>
+            <p>
+                ESE SOFTWARE LOGRA QUE EL CLIENTE PUEDA SELECCIONAR DEL CATÁLOGO UN PRODUCTO DE SU PREFERENCIA. EN CASO DE QUE ESTE NO SE ENCUENTRE, EL CLIENTE PODRÁ CREAR EL DISEÑO DE SU PRODUCTO CON TOTAL LIBERTAD DE ELECCIÓN.
+            </p>
+            <h3>¿CÓMO SE USA?</h3>
+            <p>
+                DEBERÁS REGISTRARTE CREANDO UNA CUENTA EN NUESTRA APP PARA DESPUÉS INGRESAR Y COMENZAR A ESCOGER O CREAR TU PRODUCTO.
+            </p>
+        </div>
+        <div class="buttons">
+            <button id="backBtn">Volver</button>
+            <button id="nextBtn">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+        // Botón "Volver" redirige a la primera interfaz
+        document.getElementById("backBtn").addEventListener("click", function() {
+            window.location.href = "taopaypay1.html"; // Reemplaza con el nombre de la primera interfaz
+        });
+
+        // Botón "Siguiente" redirige a la tercera interfaz
+        document.getElementById("nextBtn").addEventListener("click", function() {
+            window.location.href = "taopaypay3.html"; // Reemplaza con el nombre de la tercera interfaz
+        });
+    </script>
+</body>
+</html>
