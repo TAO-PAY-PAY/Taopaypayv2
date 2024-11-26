@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratación - TAO PAY PAY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #40E0D0; /* Fondo turquesa */
+            color: #333;
+        }
+
+        header {
+            background-color: #008080; /* Azul oscuro */
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative; /* Permite posicionar los logos */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            width: 80px;
+            height: 80px;
+        }
+
+        .logo-left {
+            left: 20px;
+        }
+
+        .logo-right {
+            right: 20px;
+        }
+
+        .content {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #008080; /* Azul oscuro */
+        }
+
+        p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #008080; /* Azul oscuro */
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: #004d4d; /* Azul más oscuro */
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #002626; /* Aún más oscuro */
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #008080; /* Azul oscuro */
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #004d4d; /* Azul más oscuro */
+        }
+
+        form input[type="file"], form input[type="submit"] {
+            margin: 10px 0;
+        }
+
+        form input[type="submit"] {
+            background-color: #008080; /* Azul oscuro */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #004d4d; /* Azul más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo2.jpeg" alt="Logo izquierdo" class="logo logo-left">
+        <h1>TAO PAY PAY</h1>
+        <p>"Innovando para un mundo mejor"</p>
+        <img src="Logo3.jpeg" alt="Logo derecho" class="logo logo-right">
+    </header>
+
+    <div class="content">
+        <h2>Contratación</h2>
+        <p>Bienvenido a nuestra página de contratación. Aquí podrás descargar el formato de solicitud de empleo y enviarlo completo para postularte a nuestras vacantes.</p>
+
+        <!-- Descarga del documento -->
+        <h3>Descarga el Formato</h3>
+        <p>Haz clic en el botón para descargar el formato de solicitud de empleo:</p>
+        <a href="SOLICITUD DE EMPLEO.docx" class="button" download>Descargar Formato</a>
+
+        <!-- Formulario de envío -->
+        <h3>Envía tu Solicitud</h3>
+        <form action="subir_documento.php" method="post" enctype="multipart/form-data">
+            <label for="archivo">Sube aquí tu solicitud de empleo completa:</label><br>
+            <input type="file" name="archivo" id="archivo" accept=".pdf,.doc,.docx"><br>
+            <input type="submit" value="Enviar Solicitud">
+        </form>
+
+        <p><a href="2.0.html">Volver a la página principal</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TAO PAY PAY. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
